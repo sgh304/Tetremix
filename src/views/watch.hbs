@@ -1,0 +1,94 @@
+<link rel = 'stylesheet' href = '/css/watch.css' type = 'text/css' charset = 'utf-8'>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+<div class = 'row'>
+    <h4 class = 'display-4'>
+        Watch
+    </h4>
+</div>
+<div class = 'row'>
+    <div class = 'col'>
+        <div id = 'game-parent' class = 'text-center'>
+        </div>
+    </div>
+</div>
+<div class = 'row'>
+    <div class = 'col'>
+        <h3><strong>{{replay.name}}</strong></h3>
+
+        <div class = 'row'>
+            <div class = 'col-1'>
+                <img class = 'icon' src = '/img/creator.svg'>
+            </div>
+            <div class = 'col'>
+                <h4><strong>{{replay.creator.username}}</strong></h4>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-1'>
+                <img class = 'icon' src = '/img/views2.svg'>
+            </div>
+            <div class = 'col'>
+                <h4>{{replay.plays}}</h4>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-1'>
+                <img class = 'icon' src = '/img/rating.svg'>
+            </div>
+            <div class = 'col'>
+                <h4>{{df (avg replay.ratings)}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class = 'col text-center'>
+        <h3>Press a key at any time to take control!</h3>
+    </div>
+    <div class = 'col'>
+        <div class = 'row'>
+            <div class = 'col'>
+                <div class = 'text-right'>
+                    <button class='btn btn-secondary' data-toggle='collapse' data-target='#rating'>
+                        Rate this replay
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col'>
+                <div id = 'rating' class='text-right collapse multi-collapse'>
+                    <form action = 'javascript:submitRating()'>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' name='rating' id='rating-1' value=1>
+                            <label class='form-check-label' for='rating-1'>1</label>
+                        </div>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' name='rating' id='rating-2' value=2>
+                            <label class='form-check-label' for='rating-2'>2</label>
+                        </div>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' name='rating' id='rating-3' checked=true value=3>
+                            <label class='form-check-label' for='rating-3'>3</label>
+                        </div>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' name='rating' id='rating-4' value=4>
+                            <label class='form-check-label' for='rating-4'>4</label>
+                        </div>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' name='rating' id='rating-5' value=5>
+                            <label class='form-check-label' for='rating-5'>5</label>
+                        </div>
+                        <button onclick = 'submitRating()' class = 'btn btn-secondary'>
+                            Rate
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src = 'https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<script src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js'></script>
+<script src = '../script/game.js'></script>
+<script src = '../script/watch.js'></script>

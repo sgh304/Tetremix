@@ -1,0 +1,27 @@
+{
+  "name": "aitetris",
+  "version": "1.0.0",
+  "description": "A webapp for creating and playing custom Tetris games.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-008-spring-2018/sgh304-final-project.git"
+  },
+  "author": "Sam Holloway",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-008-spring-2018/sgh304-final-project/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-008-spring-2018/sgh304-final-project#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "hbs": "^4.0.1",
+    "mongoose": "^5.0.12",
+    "mongoose-url-slugs": "^1.0.2"
+  }
+}

@@ -1,0 +1,139 @@
+<h4 class = 'display-4'>
+    Create
+</h4>
+{{#if sessionUser}}
+    {{#if error}}
+        <div class = 'alert alert-warning'>{{error}}</div>
+    {{/if}}
+    <form name = 'create' method = 'POST' action = 'create' onsubmit = 'return validate()'>
+        <h4>
+            Information
+        </h4>
+        <div class='form-group'>
+            <label for='name'><strong>Name</strong></label>
+            <input type='text' class='form-control' name='name' placeholder='Enter a name for your game mode.'>
+        </div>
+        <div class='form-group'>
+            <label for='description'><strong>Description</strong></label>
+            <input type='text' class='form-control' name='description' placeholder='Enter a description for your game mode.'>
+        </div>
+        <div class='form-group'>
+            <div><label><strong>Icon</strong></label></div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-1'><img src = '/img/icon1.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-1' checked=true value = 1>
+            </div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-2'><img src = '/img/icon2.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-2' value = 2>
+            </div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-3'><img src = '/img/icon3.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-3' value = 3>
+            </div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-4'><img src = '/img/icon4.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-4' value = 4>
+            </div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-5'><img src = '/img/icon5.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-5' value = 5>
+            </div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-6'><img src = '/img/icon6.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-6' value = 6>
+            </div>
+            <div class='form-check form-check-inline'>
+                <label class='form-check-label' for='icon-7'><img src = '/img/icon7.png'></label>
+                <input class='form-check-input' type='radio' name='icon' id='icon-7' value = 7>
+            </div>
+        </div>
+        <h4>
+            Options
+        </h4>
+        <div class='form-group'>
+            <div class = 'row'>
+                <div class ='col'>
+                    <label for='normalGravity'><strong>Normal Gravity</strong></label>
+                    <input type='text' class='form-control' name='normalGravity' placeholder='Enter a normal gravity for your game mode.' value=30>
+                    <label for='normalGravity'>The number of frames it takes for the active tetrimino to drop one unit.</label>
+                </div>
+                <div class ='col'>
+                    <label for='downGravity'><strong>Down Gravity</strong></label>
+                    <input type='text' class='form-control' name='downGravity' placeholder='Enter a down gravity for your game mode.' value=10>
+                    <label for='downGravity'>The number of frames it takes for the active tetrimino to drop one unit while the player is holding the down arrow key.</label>
+                </div>
+            </div>
+            <div class = 'row'>
+                <div class = 'col'>
+                    <label for='autoshift'><strong>Autoshift</strong></label>
+                    <input type='text' class='form-control' name='autoshift' placeholder='Enter an autoshift for your game mode.' value=3>
+                    <label for='autoshift'>The number of frames between repeating held key presses.</label>
+                </div>
+                <div class = 'col'>
+                    <label for='das'><strong>DAS</strong></label>
+                    <input type='text' class='form-control' name='das' placeholder='Enter a DAS for your game mode.' value=10>
+                    <label for='das'>The number of frames to wait after a key is pressed until autoshift is activated.</label>
+                </div>
+            </div>
+        </div>
+        <div class = 'form-group'>
+            <div class = 'row'>
+                <div class = 'col'>
+                    <label for='hoverFrames'><strong>Hover Frames</strong></label>
+                    <input type='text' class='form-control' name='hoverFrames' placeholder='Enter a number of hover frames for your game mode.' value=30>
+                    <label for='hoverFrames'>The number of frames the active tetrimino can remain at the bottom of the well without locking into place.</label>
+                </div>
+                <div class = 'col'>
+                    <label for='seed'><strong>Seed</strong></label>
+                    <input type='text' class='form-control' name='seed' placeholder='Enter a seed for your game mode.'>
+                    <label for='seed'>The seed used for random number generation.</label>
+                </div>
+            </div>
+        </div>
+        <h4>
+            Win Conditions
+        </h4>
+        <div class='form-group'>
+            <div class = 'row'>
+                <div class ='col'>
+                    <label for='clearGoal'><strong>Clear Goal</strong></label>
+                    <input type='text' class='form-control' name='clearGoal' placeholder='Enter a clear goal for your game mode.'>
+                    <label for='clearGoal'>The number of line clears needed to win.</label>
+                </div>
+            </div>
+            <div class = 'row'>
+                <div class ='col'>
+                    <label for='timeGoal'><strong>Time Goal</strong></label>
+                    <input type='text' class='form-control' name='timeGoal' placeholder='Enter a time goal for your game mode.'>
+                    <label for='timeGoal'>The number of seconds before the player automatically wins.</label>
+                </div>
+            </div>
+        </div>
+        <h4>
+            Extras
+        </h4>
+        <div class='form-group'>
+            <div class = 'row'>
+                <div class ='col'>
+                    <label for='junkTime'><strong>Junk Time</strong></label>
+                    <input type='text' class='form-control' name='junkTime' placeholder='Enter a junk time for your game mode.'>
+                    <label for='junkTime'>The number of seconds it takes for a junk line to be generated at the bottom of the well.</label>
+                </div>
+                <div class ='col'>
+                    <label for='junkAmount'><strong>Junk Amount</strong></label>
+                    <input type='text' class='form-control' name='junkAmount' placeholder='Enter a junk amount for your game mode.'>
+                    <label for='junkAmount'>The number of junk blocks in each junk line that is generated.</label>
+                </div>
+            </div>
+        </div>
+        <div class = 'text-right'>
+            <button type='submit' class='btn btn-primary'>Create</button>
+        </div>
+    </form>
+{{else}}
+    <div class = 'alert alert-danger'>Can't create unless you're logged in.</div>
+{{/if}}
+
+<script src = 'https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<script src = '../script/create.js'></script>
