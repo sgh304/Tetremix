@@ -37,9 +37,4 @@ mongoose.model('User', userSchema);
 mongoose.model('GameMode', gameModeSchema);
 mongoose.model('Replay', replaySchema);
 
-if (process.env.NODE_ENV == 'PRODUCTION') {
-    mongoose.connect(JSON.parse(fs.readFileSync('config.json', {encoding: 'utf-8'})).dbString)
-}
-else {
-    mongoose.connect('mongodb://localhost/aitetris');
-}
+mongoose.connect('mongodb://localhost/tetremix');
