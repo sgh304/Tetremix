@@ -149,7 +149,7 @@ function submitReplay() {
     const name = game.replayInput;
     if (name != '') {
         $.post('/tetremix/api/replays', {name: name, gameModeSlug: document.location.pathname.split('/')[3], events: JSON.stringify(game.events)}, (res) => {
-            window.location.href = '/watch/' + res.slug;
+            window.location.href = '/tetremix/watch/' + res.slug;
         })
     }
 }
