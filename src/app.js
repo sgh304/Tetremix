@@ -110,7 +110,7 @@ app.post('/create/', (req, res) => {
         }
         else {
             // Success -- redirect to play
-            res.redirect('/play/' + gameMode.slug + '/');
+            res.redirect('/tetremix/play/' + gameMode.slug + '/');
         }
     })
 })
