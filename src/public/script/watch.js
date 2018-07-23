@@ -9,9 +9,9 @@ function setup() {
     frameRate(60);
     game = new Game()
     game.disableReplayInput = true;
-    $.get('/api/replays/' + document.location.pathname.split('/')[2], (replay) => {
+    $.get('/tetremix/api/replays/' + document.location.pathname.split('/')[2], (replay) => {
         events = replay.events;
-        $.get('/api/game-modes/' + replay.gameModeSlug, (gameMode) => {
+        $.get('/tetremix/api/game-modes/' + replay.gameModeSlug, (gameMode) => {
             game.setMode(gameMode);
             game.ready = true;
         })
@@ -143,6 +143,6 @@ function setModeInfo(gameMode) {
 // Rating
 function submitRating() {
     const rating = Number($('input[name=\'rating\']:checked').val());
-    $.post('/api/replays/rate/' + document.location.pathname.split('/')[2], {rating: rating});
+    $.post('/tetremix/api/replays/rate/' + document.location.pathname.split('/')[2], {rating: rating});
     $('#rating input').prop({disabled: true});
 }

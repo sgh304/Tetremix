@@ -49,7 +49,7 @@ $('document').ready(() => {
 	    });
 	}
 	// Initial AJAX request
-	$.get('/api/game-modes', (gameModes) => {
+	$.get('/tetremix/api/game-modes', (gameModes) => {
 		allGameModes = gameModes;
 		resortTable();
 	});

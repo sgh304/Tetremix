@@ -4,7 +4,7 @@ function setup() {
     canvas.parent('game-parent');
     frameRate(60);
     game = new Game();
-    $.get('/api/game-modes/' + document.location.pathname.split('/')[2], (gameMode) => {
+    $.get('/tetremix/api/game-modes/' + document.location.pathname.split('/')[2], (gameMode) => {
         game.setMode(gameMode);
         setModeInfo(gameMode)
         game.ready = true;
@@ -140,7 +140,7 @@ function setModeInfo(gameMode) {
 // Rating
 function submitRating() {
     const rating = Number($('input[name=\'rating\']:checked').val());
-    $.post('/api/game-modes/rate/' + document.location.pathname.split('/')[2], {rating: rating});
+    $.post('/tetremix/api/game-modes/rate/' + document.location.pathname.split('/')[2], {rating: rating});
     $('#rating input').prop({disabled: true});
 }
 
@@ -148,7 +148,7 @@ function submitRating() {
 function submitReplay() {
     const name = game.replayInput;
     if (name != '') {
-        $.post('/api/replays', {name: name, gameModeSlug: document.location.pathname.split('/')[2], events: JSON.stringify(game.events)}, (res) => {
+        $.post('/tetremix/api/replays', {name: name, gameModeSlug: document.location.pathname.split('/')[2], events: JSON.stringify(game.events)}, (res) => {
             window.location.href = '/watch/' + res.slug;
         })
     }

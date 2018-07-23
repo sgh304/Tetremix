@@ -23,7 +23,7 @@ $('document').ready(() => {
 				currentRow = $('<div class =\'row pb-3\'></div>');
 				cardHolder.append(currentRow);
 			}
-			gameMode = $.get({url: '/api/game-modes/' + replay.gameModeSlug, async: false}).responseJSON;
+			gameMode = $.get({url: '/tetremix/api/game-modes/' + replay.gameModeSlug, async: false}).responseJSON;
 			currentRow.append(
 				'<div class = \'col-3\'>\
             		<div class = \'card\'>\
@@ -57,7 +57,7 @@ $('document').ready(() => {
 	    });
 	}
 	// Initial AJAX request
-	$.get('/api/replays', (replays) => {
+	$.get('/tetremix/api/replays', (replays) => {
 		allReplays = replays;
 		resortTable();
 	});
