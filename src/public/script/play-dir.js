@@ -28,21 +28,21 @@ $('document').ready(() => {
             		<div class = \'card\'>\
                 		<div class = \'row\'>\
                     		<div class = \'col-3 text-center\'>\
-                        		<img class = \'icon\' src = \'/img/plays.svg\'>\
+                        		<img class = \'icon\' src = \'/tetremix/img/plays.svg\'>\
 								<h6>' + gameMode.plays + '</h6> \
 		                    </div>\
  	                  		<div class = \'col\'>\
-                        		<img class=\'card-img-top\' src=\'/img/icon' + gameMode.icon + '.png\'>\
+                        		<img class=\'card-img-top\' src=\'/tetremix/img/icon' + gameMode.icon + '.png\'>\
 		                    </div>\
 		                    <div class = \'col-3 text-center\'>\
-	                        	<img class = \'icon\' src = \'/img/rating.svg\'>\
+	                        	<img class = \'icon\' src = \'/tetremix/img/rating.svg\'>\
 	                        	<h6>' + (gameMode.ratings.reduce((a, b) => a + b, 0) / (gameMode.ratings.length || 1)).toFixed(1) + '</h6>\
 		                    </div>\
 		                </div>\
 	                <div class = \'card-body\'>\
 	                    <a href = \'\\play\\' + gameMode.slug + '\'><h5 class = \'card-title\'>' + gameMode.name + '</h5></a>\
 	                    <p class=\'card-text\'>' + gameMode.description + '</p>\
-				        <img class = \'icon\' style = \'width: 20px; display:inline-block\' src = \'/img/creator.svg\'>\
+				        <img class = \'icon\' style = \'width: 20px; display:inline-block\' src = \'/tetremix/img/creator.svg\'>\
 				        <h6 style = \'display:inline-block\'>' + gameMode.creator.username + '</h6>\
 	                </div>\
 	            </div>');
