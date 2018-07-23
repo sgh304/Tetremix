@@ -254,40 +254,47 @@ app.get('/register/', (req, res) => {
 })
 
 app.post('/register/', (req, res) => {
-    // Check for existing username
-    User.findOne({username: req.body.username}, (err, result) => {
-        if (err || result) {
-            // Existing username
-            res.render('register', {sessionUser: req.session.user, error: 'Username already exists.'})
-        }
-        else {
-            // Success -- hash password
-            bcrypt.hash(req.body.password, 10, (err, hash) => {
-                if (err) {
-                    // Error hashing
-                    res.render('register', {sessionUser: req.session.user, error: 'Error creating user.'})
-                }
-                else {
-                    // Success -- create user
-                    user = new User({
-                        username: req.body.username,
-                        password: hash
-                    })
-                    user.save((err, user) => {
-                        if (err) {
-                            // Error saving user
-                            res.render('register', {sessionUser: req.session.user, error: 'Error creating user.'})                     
-                        }
-                        else {
-                            // Success -- set session user and redirect to home
-                            req.session.user = user;
-                            res.redirect('/tetremix/');
-                        }
-                    })
-                }
-            })
-        }
-    })
+    // Check for no username/password
+    if (req.body.username == '' || req.body.password == '') {
+        res.render('register', {sessionUser: req.session.user, error: 'Please enter a username and password.'});
+    }
+    else {
+        // Check for existing username
+        User.findOne({username: req.body.username}, (err, result) => {
+            if (err || result) {
+                // Existing username
+                res.render('register', {sessionUser: req.session.user, error: 'Username already exists.'})
+            }
+            else {
+                // Success -- hash password
+                bcrypt.hash(req.body.password, 10, (err, hash) => {
+                    if (err) {
+                        // Error hashing
+                        res.render('register', {sessionUser: req.session.user, error: 'Error creating user.'})
+                    }
+                    else {
+                        // Success -- create user
+                        user = new User({
+                            username: req.body.username,
+                            password: hash
+                        })
+                        user.save((err, user) => {
+                            if (err) {
+                                // Error saving user
+                                res.render('register', {sessionUser: req.session.user, error: 'Error creating user.'})                     
+                            }
+                            else {
+                                // Success -- set session user and redirect to home
+                                req.session.user = user;
+                                res.redirect('/tetremix/');
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+
 })
 
 // Listen
