@@ -4,7 +4,7 @@ function setup() {
     canvas.parent('game-parent');
     frameRate(60);
     game = new Game();
-    $.get('/tetremix/api/game-modes/' + document.location.pathname.split('/')[2], (gameMode) => {
+    $.get('/tetremix/api/game-modes/' + document.location.pathname.split('/')[3], (gameMode) => {
         game.setMode(gameMode);
         setModeInfo(gameMode)
         game.ready = true;
