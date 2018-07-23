@@ -41,7 +41,7 @@ $('document').ready(() => {
 		                    </div>\
 		                </div>\
 	                <div class = \'card-body\'>\
-	                    <a href = \'\\watch\\' + replay.slug + '\'><h5 class = \'card-title\'>' + replay.name + '</h5></a>\
+	                    <a href = \'/tetremix/watch/' + replay.slug + '/\'><h5 class = \'card-title\'>' + replay.name + '</h5></a>\
 	                    <div class = \'row\'>\
 	                    	<div class = \'col\'>\
 				        		<img class = \'icon\' style = \'width: 20px; display:inline-block\' src = \'/tetremix/img/plays.svg\'>\
