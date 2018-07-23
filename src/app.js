@@ -241,7 +241,7 @@ app.post('/login/', (req, res) => {
                 else {
                     // Success -- set session user and redirect to home
                     req.session.user = user;
-                    res.redirect('/');
+                    res.redirect('/tetremix/');
                 }
             })
         }
@@ -281,7 +281,7 @@ app.post('/register/', (req, res) => {
                         else {
                             // Success -- set session user and redirect to home
                             req.session.user = user;
-                            res.redirect('/');
+                            res.redirect('/tetremix/');
                         }
                     })
                 }
