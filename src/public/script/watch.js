@@ -143,6 +143,6 @@ function setModeInfo(gameMode) {
 // Rating
 function submitRating() {
     const rating = Number($('input[name=\'rating\']:checked').val());
-    $.post('/tetremix/api/replays/rate/' + document.location.pathname.split('/')[2], {rating: rating});
+    $.post('/tetremix/api/replays/rate/' + document.location.pathname.split('/')[3], {rating: rating});
     $('#rating input').prop({disabled: true});
 }
