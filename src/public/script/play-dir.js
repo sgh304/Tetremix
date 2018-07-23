@@ -40,7 +40,7 @@ $('document').ready(() => {
 		                    </div>\
 		                </div>\
 	                <div class = \'card-body\'>\
-	                    <a href = \'\\play\\' + gameMode.slug + '\'><h5 class = \'card-title\'>' + gameMode.name + '</h5></a>\
+	                    <a href = \'/tetremix/play/' + gameMode.slug + '/\'><h5 class = \'card-title\'>' + gameMode.name + '</h5></a>\
 	                    <p class=\'card-text\'>' + gameMode.description + '</p>\
 				        <img class = \'icon\' style = \'width: 20px; display:inline-block\' src = \'/tetremix/img/creator.svg\'>\
 				        <h6 style = \'display:inline-block\'>' + gameMode.creator.username + '</h6>\
