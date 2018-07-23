@@ -9,7 +9,7 @@ function setup() {
     frameRate(60);
     game = new Game()
     game.disableReplayInput = true;
-    $.get('/tetremix/api/replays/' + document.location.pathname.split('/')[2], (replay) => {
+    $.get('/tetremix/api/replays/' + document.location.pathname.split('/')[3], (replay) => {
         events = replay.events;
         $.get('/tetremix/api/game-modes/' + replay.gameModeSlug, (gameMode) => {
             game.setMode(gameMode);
