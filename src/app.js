@@ -40,11 +40,11 @@ app.get('/', (req, res) => {
 });
 
 // Watch
-app.get('/watch', (req, res) => {
+app.get('/watch/', (req, res) => {
     res.render('watch-dir', {sessionUser: req.session.user});
 })
 
-app.get('/watch/:slug', (req, res) => {
+app.get('/watch/:slug/', (req, res) => {
     Replay.findOne({slug: req.params.slug}, (err, replay) => {
         if (err) {
             console.log(err);
@@ -66,11 +66,11 @@ app.get('/watch/:slug', (req, res) => {
 })
 
 // Play
-app.get('/play', (req, res) => {
+app.get('/play/', (req, res) => {
     res.render('play-dir', {sessionUser: req.session.user});
 })
 
-app.get('/play/:slug', (req, res) => {
+app.get('/play/:slug/', (req, res) => {
     GameMode.findOne({slug: req.params.slug}, (err, gameMode) => {
         if (err) {
             console.log(err);
@@ -85,11 +85,11 @@ app.get('/play/:slug', (req, res) => {
 })
 
 // Create
-app.get('/create', (req, res) => {
+app.get('/create/', (req, res) => {
     res.render('create', {sessionUser: req.session.user});
 })
 
-app.post('/create', (req, res) => {
+app.post('/create/', (req, res) => {
     // Create game mode
     gameMode = new GameMode({
         name: req.body.name,
@@ -110,13 +110,13 @@ app.post('/create', (req, res) => {
         }
         else {
             // Success -- redirect to play
-            res.redirect('/play/' + gameMode.slug);
+            res.redirect('/play/' + gameMode.slug + '/');
         }
     })
 })
 
 // Game Modes API
-app.get('/api/game-modes', (req, res) => {
+app.get('/api/game-modes/', (req, res) => {
     GameMode.find({}, (err, gameModes) => {
         if (err) {
             console.log(err);
@@ -127,7 +127,7 @@ app.get('/api/game-modes', (req, res) => {
     })
 })
 
-app.get('/api/game-modes/:slug', (req, res) => {
+app.get('/api/game-modes/:slug/', (req, res) => {
     GameMode.findOne({slug: req.params.slug}, (err, gameMode) => {
         if (err) {
             console.log(err);
@@ -139,7 +139,7 @@ app.get('/api/game-modes/:slug', (req, res) => {
 })
 
 // Replay API
-app.get('/api/replays', (req, res) => {
+app.get('/api/replays/', (req, res) => {
     Replay.find({}, (err, replays) => {
         if (err) {
             console.log(err);
@@ -150,7 +150,7 @@ app.get('/api/replays', (req, res) => {
     })
 })
 
-app.post('/api/replays', (req, res) => {
+app.post('/api/replays/', (req, res) => {
     // Create replay
     replay = new Replay({     
         name: req.body.name,
@@ -169,7 +169,7 @@ app.post('/api/replays', (req, res) => {
     })
 })
 
-app.get('/api/replays/:slug', (req, res) => {
+app.get('/api/replays/:slug/', (req, res) => {
     Replay.findOne({slug: req.params.slug}, (err, replay) => {
         if (err) {
             console.log(err);
@@ -181,7 +181,7 @@ app.get('/api/replays/:slug', (req, res) => {
 })
 
 // Rating API
-app.post('/api/game-modes/rate/:slug', (req, res) => {
+app.post('/api/game-modes/rate/:slug/', (req, res) => {
     GameMode.findOne({slug: req.params.slug}, (err, gameMode) => {
         if (err) {
             console.log(err);
@@ -200,7 +200,7 @@ app.post('/api/game-modes/rate/:slug', (req, res) => {
     })
 })
 
-app.post('/api/replays/rate/:slug', (req, res) => {
+app.post('/api/replays/rate/:slug/', (req, res) => {
     Replay.findOne({slug: req.params.slug}, (err, replay) => {
         if (err) {
             console.log(err);
@@ -220,11 +220,11 @@ app.post('/api/replays/rate/:slug', (req, res) => {
 })
 
 // Login
-app.get('/login', (req, res) => {
+app.get('/login/', (req, res) => {
     res.render('login', {sessionUser: req.session.user});
 })
 
-app.post('/login', (req, res) => {
+app.post('/login/', (req, res) => {
     // Check for user
     User.findOne({username: req.body.username}, (err, user) => {
         if (err || !user) {
@@ -249,11 +249,11 @@ app.post('/login', (req, res) => {
 })
 
 // Register
-app.get('/register', (req, res) => {
+app.get('/register/', (req, res) => {
     res.render('register');
 })
 
-app.post('/register', (req, res) => {
+app.post('/register/', (req, res) => {
     // Check for existing username
     User.findOne({username: req.body.username}, (err, result) => {
         if (err || result) {
