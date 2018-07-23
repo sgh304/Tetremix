@@ -85,15 +85,20 @@ function validate() {
                         error = true;
                         $('input[name=\'junkTime\']').after(makeError('Please enter a junk time between 1 and 999.'));
                     }
-                }
-                const junkAmount = Number($('input[name=\'junkAmount\']').val());
-                if (isNaN(junkAmount) || junkAmount < 1 || junkAmount > 9) {
-                    error = true;
-                    $('input[name=\'junkAmount\']').after(makeError('Please enter a junk amount between 1 and 9.'));
+                    const junkAmount = Number($('input[name=\'junkAmount\']').val());
+                    if (isNaN(junkAmount) || junkAmount < 1 || junkAmount > 9) {
+                        error = true;
+                        $('input[name=\'junkAmount\']').after(makeError('Please enter a junk amount between 1 and 9.'));
+                    }
                 }
                 break;
             case 'junkAmount':
                 if (value != '') {
+                    const junkAmount = Number($('input[name=\'junkAmount\']').val());
+                    if (isNaN(junkAmount) || junkAmount < 1 || junkAmount > 9) {
+                        error = true;
+                        $('input[name=\'junkAmount\']').after(makeError('Please enter a junk amount between 1 and 9.'));
+                    }
                     const junkTime = Number($('input[name=\'junkTime\']').val());
                     if (isNaN(junkTime) || junkTime < 1 || junkTime > 999) {
                         error = true;
